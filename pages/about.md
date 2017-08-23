@@ -1,28 +1,21 @@
 ---
 layout: page
-title: Zhuang Ma
-description: Zhuang Ma的个人简介。
-keywords: Zhuang Ma, 马壮
+title: Sheng Chen
+description: Sheng Chen的个人简介。
+keywords: Sheng Chen, 陈胜
 permalink: /about/
 ---
 
-**Software Engineer at [Sogou, Inc.](http://www.sogou.com)**
+**Graduate student of  [Anhui University](http://www.ahu.edu.cn)**
 
-Beijing City, China \| Computer Software
+Anhui Province, China \| Computer Software
   
-*Education:* Wuhan Institute of Technology
+*Education:* Taiyuan Institute of Technology
 
 scholar, CS/IT
 
-*Contact:* `print '%s@%s' % ('ChumpMa', 'gmail.com')  #via Python`
+*Contact:* `print '%s@%s' % ('shengchen9403', 'gmail.com') `
 
-*Social:*  [github](http://github.com/mzlogin) \| [linkedin](http://www.linkedin.com/in/mazhuang) \| [weibo](http://weibo.com/mzlogin) \| [douban](http://www.douban.com/people/freedim/) \| [blog](http://mazhuang.org)
+*Social:*  [github](http://github.com/mjdog1) \|  [blog](http://colacs.cn)
     
-```c++
-#include <iostream>
-int main()
-{
-	std::cout << "Hello, friends!" << std::endl;
-	return 0;
-}
-```
+
