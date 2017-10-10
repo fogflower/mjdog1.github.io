@@ -76,7 +76,7 @@ IP地址是一个32位的地址，用来唯一标识连接到网络的设备。�
 
 接下来举一个列子：
 我们以一个ICMP数据包来分析，它分为三块，首先给出整体图形：
-![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipfenpian.png)
+![image](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipfenpian.png)
 第一段的数据包为
 ![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag1.png)
 可以看到这里的Flags被设置成：0x01表示还存在更多的数据包，并不是只有这一个。Fragment offset: 0 表示当前的偏移为0，即可以表示分片数据包的开始位置。
