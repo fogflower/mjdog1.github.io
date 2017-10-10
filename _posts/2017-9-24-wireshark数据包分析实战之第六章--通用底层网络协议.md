@@ -60,7 +60,7 @@ IP地址是一个32位的地址，用来唯一标识连接到网络的设备。�
 ![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipsource.png)
 在编号的图中，1代表版本号为4，2代表IP的头有20个字节，3代表首部和载荷总共有60个字节，4代表TTL域的值为128。5表示源地址，6代表目标地址。这里用来了ICMP协议来验证接收主机是否发生响应。这个数据包是由发送主机创建的。
 下图是接收端捕获到的数据，可以看到TTL减少了1，说明在发送端到接收端的路径中，只存在1个路由器。
-![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipdest.png)
+![Alt text](../images/2017-9-26-wiresharkAnalysis/ipdest.png)
 
 ### IP分片
 数据包分片是将一个数据流分成若干个更小的片段，是IP用于解决跨越不同类型网络时可靠传输的一个特性。
