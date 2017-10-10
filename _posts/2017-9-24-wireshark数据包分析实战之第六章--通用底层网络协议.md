@@ -38,7 +38,7 @@ TCP/IP网络（基于ipv4）中用来将IP地址解析为MAC地址的过程叫�
 IP地址是一个32位的地址，用来唯一标识连接到网络的设备。并且为了方便起见，把32位长度的地址分层四段。分别为0~255值域内的数据。
 之所以将网络地址分为四部分，是因为每个IP地址都包含着两个部分：网络地址和主机地址。**网络地址**用来标识设备所连接到的局域网，而**主机地址**则标识网络中的设备本身。而决定这个IP地址的网络地址与主机地址的还需要一个条件，即**子网掩码**的地址信息来决定。一般会在IP地址后面加上斜杠(/)来表示网络地址与主机地址的关系。10.10.1.22/16表示网络地址为16位
 ### IPv4 头
-![Alt text](../images/2017-9-26-wiresharkAnalysis/2017-9-26-ipv4.jpg)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/2017-9-26-ipv4.jpg)
 版本号(Version): IP所使用的版本
 首部长度(Header Length):IP头的长度
 服务类型（Type of Service）: 优先级标志位和服务类型标志位，被路由器用来进行流量的优先排序。
@@ -57,10 +57,10 @@ IP地址是一个32位的地址，用来唯一标识连接到网络的设备。�
 存活时间（TTL）值定义了数据包被丢弃之前，所能经历的时间，或者能够经历的最大路由数目。在数据包创建的时候被定义，当经过一个路由器之后就发生了减1操作。如果在某一个路由器中，已经减到0那么就会发生丢弃的情况。
 这对于类似于死循环是很有帮助的，可以检测这种TTL，这样就可以避免死循环。
 给出一个请求的IP头
-![Alt text](../images/2017-9-26-wiresharkAnalysis/ipsource.png)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/ipsource.png)
 在编号的图中，1代表版本号为4，2代表IP的头有20个字节，3代表首部和载荷总共有60个字节，4代表TTL域的值为128。5表示源地址，6代表目标地址。这里用来了ICMP协议来验证接收主机是否发生响应。这个数据包是由发送主机创建的。
 下图是接收端捕获到的数据，可以看到TTL减少了1，说明在发送端到接收端的路径中，只存在1个路由器。
-![Alt text](../images/2017-9-26-wiresharkAnalysis/ipdest.png)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/ipdest.png)
 
 ### IP分片
 数据包分片是将一个数据流分成若干个更小的片段，是IP用于解决跨越不同类型网络时可靠传输的一个特性。
@@ -76,22 +76,22 @@ IP地址是一个32位的地址，用来唯一标识连接到网络的设备。�
 
 接下来举一个列子：
 我们以一个ICMP数据包来分析，它分为三块，首先给出整体图形：
-![image](../images/2017-9-26-wiresharkAnalysis/ipfenpian.png)
+![image](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/ipfenpian.png)
 第一段的数据包为
-![Alt text](../images/2017-9-26-wiresharkAnalysis/ipfenpian-frag1.png)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag1.png)
 可以看到这里的Flags被设置成：0x01表示还存在更多的数据包，并不是只有这一个。Fragment offset: 0 表示当前的偏移为0，即可以表示分片数据包的开始位置。
 
-![Alt text](../images/2017-9-26-wiresharkAnalysis/ipfenpian-frag2.png)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag2.png)
 同样的，可以看到和上面除了Fragment offset 不同为1480，其他都相同，由于MTU默认为1500,减去IP头大小默认为20，所以剩下的数据为1480。且Flags为：0x01还存在分片。
 
-![Alt text](../images/2017-9-26-wiresharkAnalysis/ipfenpian-frag3.png)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag3.png)
 图中，Flags为0x00表示已经是最后一个了。同样的offset为2960表示前面两个存放的数据为2960.这里面还有一个重要的点就是这三个分片为同一个数据，因此他们的标识（Identification）都是一样的。
 
 ## 传输控制协议
 传输控制协议（Transmission Control Protocol,TCP）的最终目的是为数据提供可靠的端到端的传输。工作在OSI模型中第4层。 
 
 ### TCP头
-![Alt text](../images/2017-9-26-wiresharkAnalysis/tcp_head.png)
+![Alt text](http://colacs.cn/images/2017-9-26-wiresharkAnalysis/tcp_head.png)
 
 源端口（source port）:用来传输数据包的端口
 目的端口（Destination port）：数据包将要被发送的端口。
