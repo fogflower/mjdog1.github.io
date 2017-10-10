@@ -81,7 +81,7 @@ IP地址是一个32位的地址，用来唯一标识连接到网络的设备。�
 ![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag1.png)
 可以看到这里的Flags被设置成：0x01表示还存在更多的数据包，并不是只有这一个。Fragment offset: 0 表示当前的偏移为0，即可以表示分片数据包的开始位置。
 
-![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag2.png)
+![Alt text](https://raw.githubusercontent.com/mjdog1/mjdog1.github.io/master/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag2.png)
 同样的，可以看到和上面除了Fragment offset 不同为1480，其他都相同，由于MTU默认为1500,减去IP头大小默认为20，所以剩下的数据为1480。且Flags为：0x01还存在分片。
 
 ![Alt text](https://github.com/mjdog1/mjdog1.github.io/blob/master/images/2017-9-26-wiresharkAnalysis/ipfenpian-frag3.png)
